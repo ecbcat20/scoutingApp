@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fun with Forms in Vue.js</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.4/css/bulma.min.css">
+</head>
+
+<body>
+  <div class="columns" id="app">
+    <div class="column is-two-thirds">
+      <section class="section">
+        <h1 class="title">Fun with Forms in Vue 2.0</h1>
+        <p class="subtitle">
+          Learn how to work with forms, including <strong>validation</strong>!
+        </p>
+        <hr>      
+        
+        <!-- form starts here -->
+
+        <section class="form">
+            <section class="form">
+                <div class="field">
+                  <label class="label">Name</label>
+                  <div class="control">
+                    <input v-model="form.name" class="input" type="text" placeholder="Text input">
+                  </div>
+                </div>
+              </section>
+              ...
+              
+              <script>
+              new Vue({
+                el: '#app',
+                data: {
+                  form : {
+                    name: ''
+                  }
+                }
+              })
+              </script>
+
+</section>
+      </section>
+    </div>
+  </div>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+
+<script>
+  new Vue({
+    el: '#app'
+  })
+</script>
+
+</body>
+</html>
