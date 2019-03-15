@@ -1,15 +1,21 @@
 const express = require('express');
 const app = express();
 
-const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
+console.log(process.env.MONGO_URI, {useNewUrlParser:true});
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/scoutingAppDB').catch((err) => {
+mongoose.connect(process.env.MONGO_URI).then(() => {
+    console.log("Connected");
+}).catch(err => {
     console.log(err);
 });
 
 const morgan = require('morgan');
 const cors = require('cors');
+
+const authRoutes = require("./auth/auth");
 
 // Middleware
 app.use(express.json());
@@ -30,6 +36,8 @@ app.use(cors());
 //         sendData: req.body
 //     });
 // });
+
+app.use("/auth", authRoutes);
 
 
 app.listen(3000, () => {
