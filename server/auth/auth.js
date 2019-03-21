@@ -7,6 +7,7 @@ router.post("/", (req, res) => {
         if (userInput == process.env.PASSWORD) {
             res.send({
                 success: true
+                
         
             });
         } else {
